@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horus Audiobook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: background-color 0.3s;
+        }
+
+        header.scrolled {
+            background-color: #141414;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #e50914;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e50914;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #d2d2d2;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-weight: 600;
+        }
+
+        /* Audiobooks Grid */
+        .audiobooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .audiobook-card {
+            background-color: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .audiobook-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .audiobook-cover {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .audiobook-info {
+            padding: 15px;
+        }
+
+        .audiobook-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .audiobook-author {
+            font-size: 14px;
+            color: #a3a3a3;
+            margin-bottom: 15px;
+        }
+
+        /* Player */
+        .player-container {
+            padding: 15px;
+            background-color: #222;
+            border-radius: 0 0 8px 8px;
+            display: none;
+        }
+
+        .player-container.active {
+            display: block;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .play-btn {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .time-info {
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .volume-slider {
+            width: 80px;
+            margin-left: 5px;
+        }
+
+        /* Buy Button */
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #b2070f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #a3a3a3;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .copyright {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .audiobooks-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        /* Loading animation for covers */
+        .cover-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Fallback para imagens que não carregam */
+        .audiobook-cover.error {
+            display: none;
+        }
+        
+        .audiobook-cover.error + .cover-placeholder {
+            display: flex;
+        }
+        
+        /* Cor da capa baseada no ID */
+        .cover-placeholder[id^="cover-"] {
+            background: linear-gradient(45deg, var(--color1), var(--color2));
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-headphones"></i> HORUS AUDIOBOOK
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#audiobooks">Audiobooks</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Conhecimento em forma de áudio</h1>
+                <p>Explore nossa coleção exclusiva de audiobooks sobre esoterismo, filosofia, espiritualidade e desenvolvimento pessoal. Ouça amostras e adquira os títulos completos.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container" id="audiobooks">
+        <h2 class="section-title">Títulos Exclusivos - Parte 1</h2>
+        <div class="audiobooks-grid" id="audiobooks-list-1"></div>
+
+        <h2 class="section-title">Títulos Exclusivos - Parte 2</h2>
+        <div class="audiobooks-grid" id="audiobooks-list-2"></div>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">HORUS AUDIOBOOK</div>
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">FAQ</a>
+                <a href="#">Suporte</a>
+            </div>
+            <p class="copyright">© 2025 Horus Audiobook. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // TODOS OS 99 AUDIOBOOKS COMPLETOS - PRONTOS PARA VOCÊ EDITAR OS LINKS
+        const allAudiobooks = [
+            // ==============================================
+            // PRIMEIRA LISTA (primeira imagem - 39 títulos)
+            // ==============================================
+            { 
+                id: 1, 
+                title: "O Anticristo", 
+                author: "Friedrich Nietzsche", 
+                audioSample: "https://drive.google.com/file/d/1-qMRDOfT-V4N7etLonVzwo7vlWjHNnBt/view?usp=sharing", // Substitua pelo seu link do Google Drive
+                hotmartLink: "https://pay.hotmart.com/W103249025L", // Substitua pelo link da Hotmart
+                coverUrl: "https://ibb.co/RTcKxBhttps://i.ibb.co/QvMV2CRy/O-Anticristo-Friedrich-Nietzsche-CAPA-TRANSPARENTE.pngmR" // Opcional: URL da capa
+            },
+            { 
+                id: 2, 
+                title: "O Bahir - O Livro da Iluminação", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 3, 
+                title: "O Caibalion", 
+                author: "Três Iniciados", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 4, 
+                title: "O Caminho do Xamã", 
+                author: "Michael Hamer", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 5, 
+                title: "O Chamado de Cthulhu", 
+                author: "H. P. Lovecraft", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 6, 
+                title: "O Cristianismo Esotérico ou os Mistérios Menores", 
+                author: "Annie Besant", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 7, 
+                title: "O Diário de um Mago", 
+                author: "Paulo Coelho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 8, 
+                title: "O Governo Oculto do Mundo", 
+                author: "Henrique Rosa", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 9, 
+                title: "O Guardião da Meia Noite", 
+                author: "Rubens Saraceni", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 10, 
+                title: "O Guardião das Sete Encruzilhadas", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 11, 
+                title: "O Guardião dos Caminhos", 
+                author: "Rubens Saraceni", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 12, 
+                title: "O Homem Mais Rico da Babilônia", 
+                author: "George S. Clason", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 13, 
+                title: "O Livro Amarelo", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 14, 
+                title: "O Livro da Lei", 
+                author: "Aleister Crowley", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 15, 
+                title: "O Livro de Enoch", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 16, 
+                title: "O Livro de Thoth", 
+                author: "Aleister Crowley", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 17, 
+                title: "O Livro que diz a Verdade", 
+                author: "Rael", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 18, 
+                title: "O Matrimônio Perfeito", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 19, 
+                title: "O Persifal Desvelado", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 20, 
+                title: "O Poder da Ressonância Harmônica", 
+                author: "Hélio Couto", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 21, 
+                title: "O Príncipe", 
+                author: "Nicolau Maquiavel", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 22, 
+                title: "O Profeta", 
+                author: "Kahlil Gibran", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 23, 
+                title: "O Renascer da Magia", 
+                author: "Kenneth Grant", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 24, 
+                title: "Ocultismo Prático", 
+                author: "H. P. Blavatsky", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 25, 
+                title: "Os Pilares de Tubalcaim", 
+                author: "A tradição Luciferiana", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 26, 
+                title: "Pai Rico, Pai Pobre", 
+                author: "Robert Kiyosaki", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 27, 
+                title: "Poemas Malditos", 
+                author: "Álvares de Azevedo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 28, 
+                title: "Santo Anjo Guardião", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 29, 
+                title: "São Cipriano - O Bruxo", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 30, 
+                title: "Sim há Diabo, Sim há Karma", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 31, 
+                title: "Tantra - Espiritualidade e Sexo", 
+                author: "Osho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 32, 
+                title: "Tao Te Ching", 
+                author: "Lao Tzu", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 33, 
+                title: "The Alchemist", 
+                author: "Paulo Coelho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 34, 
+                title: "The Book of the Law", 
+                author: "Aleister Crowley", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 35, 
+                title: "The Dark Lord", 
+                author: "Peter Levenda", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 36, 
+                title: "The Wisdom of the River", 
+                author: "Alessandrho Pereira", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 37, 
+                title: "Tratado de Psicologia Revolucionária", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 38, 
+                title: "Wicca - Crenças e Práticas", 
+                author: "Gary Cantrell", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 39, 
+                title: "Zohar - O Livro do Esplendor", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            
+            // ==============================================
+            // SEGUNDA LISTA (segunda imagem - 60 títulos)
+            // ==============================================
+            { 
+                id: 40, 
+                title: "A Bíblia Satânica", 
+                author: "Anton LaVey", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 41, 
+                title: "A Bruxa de Évora", 
+                author: "Mara Helena Fareli", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 42, 
+                title: "A Bruxa Satânica", 
+                author: "Anton LaVey", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 43, 
+                title: "A Cabala Draconiana", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 44, 
+                title: "A Chave de Hiram", 
+                author: "Christopher Knight e Robert Lomas", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 45, 
+                title: "A Epopéia de Gilgamesh", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 46, 
+                title: "A Era de Aquário e o Paraíso Perdido", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 47, 
+                title: "A Erva do Diabo", 
+                author: "Carlos Castaneda", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 48, 
+                title: "A Fonte da Juventude", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 49, 
+                title: "A Grande Rebelião", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 50, 
+                title: "A Iniciação de Jesus", 
+                author: "Dr. R. Swinburne Clymer", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 51, 
+                title: "A Metamorfose", 
+                author: "Franz Kafka", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 52, 
+                title: "A Nova Alquimia", 
+                author: "Osho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 53, 
+                title: "A Pistis Sophia Desvelada", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 54, 
+                title: "A República", 
+                author: "Platão", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 55, 
+                title: "A Revolução de Belzebu", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 56, 
+                title: "A Revolução dos Bichos", 
+                author: "George Orwell", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 57, 
+                title: "A Sabedoria Antiga", 
+                author: "Annie Besant", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 58, 
+                title: "A Sabedoria do Rio", 
+                author: "Alessandrho Pereira", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 59, 
+                title: "ABC da Maçonaria", 
+                author: "Delmar D. Darrah", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 60, 
+                title: "Alice no País das Maravilhas", 
+                author: "Lewis Carroll", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 61, 
+                title: "Amor Líquido", 
+                author: "Zygmunt Bauman", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 62, 
+                title: "Amor, Liberdade e Solidão", 
+                author: "Osho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 63, 
+                title: "Anátema de Zos", 
+                author: "Austin Osman Spare", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 64, 
+                title: "Anathema Of Zos - The Sermon to the Hypocrites", 
+                author: "Austin Osman Spare", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 65, 
+                title: "Antes Que Você Morra", 
+                author: "Osho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 66, 
+                title: "As Dores do Mundo", 
+                author: "Arthur Schopenhauer", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 67, 
+                title: "As doutrinas secretas de Jesus", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 68, 
+                title: "As Guerras de Deuses e Homens", 
+                author: "Zecharia Sitchin", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 69, 
+                title: "Às Portas Da Grande Tragédia", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 70, 
+                title: "Assim Falou Zaratustra", 
+                author: "Friedrich Nietzsche", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 71, 
+                title: "Astrologia Esotérica - Interpretação da Obra de Johfra", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 72, 
+                title: "Autodefesa Psíquica", 
+                author: "Dion Fortune", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 73, 
+                title: "Brida", 
+                author: "Paulo Coelho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 74, 
+                title: "Chamando Os Filhos Do Sol", 
+                author: "Marcelo Mota", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 75, 
+                title: "Clarividência", 
+                author: "C.W. Leadbeater", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 76, 
+                title: "Como Usar A Magia para Atrair Riquezas", 
+                author: "Zaydan Alkimin", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 77, 
+                title: "Corpus Hermeticum A Tábua de Esmeralda", 
+                author: "Hermes Trismegisto", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 78, 
+                title: "Dogma e Ritual da Alta Magia", 
+                author: "Eliphas Levi", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 79, 
+                title: "Educação Fundamental", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 80, 
+                title: "Eu e Outras Poesias", 
+                author: "Augusto dos Anjos", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 81, 
+                title: "Eu venho de longe", 
+                author: "Mestre Irineu e seus companheiros", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 82, 
+                title: "Feitiçaria - A Tradição Renovada", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 83, 
+                title: "Filho do Fogo - Vol. 1 - A Semente do Mal", 
+                author: "Daniel Mastral", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 84, 
+                title: "Filho do Fogo - Vol.2 - O Descortinar da Alta Magia", 
+                author: "Daniel Mastral", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 85, 
+                title: "Filosofia oculta do amor e do matrimônio", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 86, 
+                title: "Flores do Mal", 
+                author: "Charles Baudelaire", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 87, 
+                title: "Grimorium Imperium", 
+                author: "Dr. John Dee", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 88, 
+                title: "Hercólubus", 
+                author: "Mestre Raboldi", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 89, 
+                title: "KENNETH GRANT COLECTION", 
+                author: "Kenneth Grant", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 90, 
+                title: "Lúcifer", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 91, 
+                title: "Lúcifer e Lógos", 
+                author: "Huberto Rohden", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 92, 
+                title: "Magia de Redenção", 
+                author: "Anônimo", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 93, 
+                title: "Magnus Opus", 
+                author: "Samael Aun Weor", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 94, 
+                title: "Manifesto do Partido Comunista", 
+                author: "Karl Marx e Friedrich Engels", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 95, 
+                title: "Manual Prático do Vampirismo", 
+                author: "Paulo Coelho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 96, 
+                title: "Meditações", 
+                author: "Marco Aurélio", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 97, 
+                title: "Memórias do Subsolo", 
+                author: "Fiódor Dostoiévski", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 98, 
+                title: "O Alquimista", 
+                author: "Paulo Coelho", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            },
+            { 
+                id: 99, 
+                title: "Assim Falava Zaratustra", 
+                author: "Friedrich Nietzsche", 
+                audioSample: "COLE_SUA_URL_AQUI", 
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI", 
+                coverUrl: "" 
+            }
+        ];
+
+        // Função para gerar cores baseadas no ID
+        function getColorFromId(id) {
+            const colors = [
+                { color1: '#6a11cb', color2: '#2575fc' },
+                { color1: '#ff416c', color2: '#ff4b2b' },
+                { color1: '#2193b0', color2: '#6dd5ed' },
+                { color1: '#cc2b5e', color2: '#753a88' },
+                { color1: '#42275a', color2: '#734b6d' },
+                { color1: '#de6161', color2: '#2657eb' },
+                { color1: '#4568dc', color2: '#b06ab3' },
+                { color1: '#ff7e5f', color2: '#feb47b' },
+                { color1: '#614385', color2: '#516395' },
+                { color1: '#ee0979', color2: '#ff6a00' }
+            ];
+            return colors[id % colors.length];
+        }
+
+        // Função para criar um card de audiobook
+        function createAudiobookCard(audiobook) {
+            const card = document.createElement('div');
+            card.className = 'audiobook-card';
+            card.dataset.id = audiobook.id;
+            
+            const colors = getColorFromId(audiobook.id);
+            const hasCover = audiobook.coverUrl && audiobook.coverUrl.trim() !== "";
+            
+            card.innerHTML = `
+                ${hasCover ? 
+                    `<img class="audiobook-cover" 
+                          src="${audiobook.coverUrl}" 
+                          alt="${audiobook.title}"
+                          onerror="this.classList.add('error'); this.nextElementSibling.style.display='flex';">` 
+                    : ''
+                }
+                <div class="cover-placeholder" id="cover-${audiobook.id}" 
+                     style="${hasCover ? 'display:none;' : `--color1:${colors.color1}; --color2:${colors.color2}; background:linear-gradient(45deg, ${colors.color1}, ${colors.color2})`}">
+                    <span>${audiobook.title.substring(0, 20)}${audiobook.title.length > 20 ? '...' : ''}</span>
+                </div>
+                <div class="audiobook-info">
+                    <div class="audiobook-title" title="${audiobook.title}">${audiobook.title}</div>
+                    <div class="audiobook-author">${audiobook.author}</div>
+                </div>
+                <div class="player-container" id="player-${audiobook.id}">
+                    <div class="player-controls">
+                        <button class="play-btn" data-audio="${audiobook.audioSample}">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-info">
+                            <span class="current-time">0:00</span> / <span class="duration">0:00</span>
+                        </div>
+                        <div class="volume-container">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+                        </div>
+                    </div>
+                    <audio class="audio-player" id="audio-${audiobook.id}" preload="metadata">
+                        <source src="${audiobook.audioSample}" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                    <a href="${audiobook.hotmartLink}" target="_blank" class="buy-btn">COMPRAR AGORA</a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Função para carregar os audiobooks na página
+        function loadAudiobooks() {
+            const list1 = document.getElementById('audiobooks-list-1');
+            const list2 = document.getElementById('audiobooks-list-2');
+            
+            // Dividir os 99 audiobooks em duas partes (50 e 49)
+            const firstPart = allAudiobooks.slice(0, 50);
+            const secondPart = allAudiobooks.slice(50);
+            
+            // Carregar primeira parte
+            firstPart.forEach(audiobook => {
+                const card = createAudiobookCard(audiobook);
+                list1.appendChild(card);
+            });
+            
+            // Carregar segunda parte
+            secondPart.forEach(audiobook => {
+                const card = createAudiobookCard(audiobook);
+                list2.appendChild(card);
+            });
+            
+            // Adicionar eventos
+            addCardEvents();
+            addPlayerEvents();
+            
+            // Mostrar instruções
+            console.log("✅ Site carregado com 99 audiobooks!");
+            console.log("📝 PARA EDITAR:");
+            console.log("1. Substitua 'COLE_SUA_URL_AQUI' pelos links do Google Drive");
+            console.log("2. Substitua 'COLE_SEU_LINK_HOTMART_AQUI' pelos links da Hotmart");
+            console.log("3. Para capas: adicione URLs em 'coverUrl' ou deixe vazio para placeholder");
+        }
+
+        // Adicionar eventos aos cards
+        function addCardEvents() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.audiobook-card')) {
+                    const card = e.target.closest('.audiobook-card');
+                    const player = card.querySelector('.player-container');
+                    
+                    // Se clicou no player ou botão play, não faz nada
+                    if (e.target.closest('.player-container') || e.target.closest('.play-btn')) {
+                        return;
+                    }
+                    
+                    // Fecha todos os outros players
+                    document.querySelectorAll('.player-container').forEach(p => {
+                        if (p !== player) p.classList.remove('active');
+                    });
+                    
+                    // Abre/fecha o player clicado
+                    player.classList.toggle('active');
+                    
+                    // Para outros áudios
+                    document.querySelectorAll('audio').forEach(audio => {
+                        if (audio !== player.querySelector('audio')) {
+                            audio.pause();
+                            audio.currentTime = 0;
+                            // Reseta ícones de outros players
+                            const otherIcon = audio.closest('.player-container')?.querySelector('.play-btn i');
+                            if (otherIcon) otherIcon.className = 'fas fa-play';
+                        }
+                    });
+                }
+            });
+        }
+
+        // Adicionar eventos aos controles do player
+        function addPlayerEvents() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.play-btn')) {
+                    const btn = e.target.closest('.play-btn');
+                    const playerId = btn.closest('.player-container').id.replace('player-', '');
+                    const audio = document.getElementById(`audio-${playerId}`);
+                    const icon = btn.querySelector('i');
+                    
+                    // Para todos os áudios
+                    document.querySelectorAll('audio').forEach(a => {
+                        if (a !== audio) {
+                            a.pause();
+                            a.currentTime = 0;
+                            // Reseta ícones de outros players
+                            const otherIcon = a.closest('.player-container')?.querySelector('.play-btn i');
+                            if (otherIcon) otherIcon.className = 'fas fa-play';
+                        }
+                    });
+                    
+                    // Play/pause do áudio atual
+                    if (audio.paused) {
+                        audio.play();
+                        icon.className = 'fas fa-pause';
+                        
+                        // Atualiza o tempo
+                        audio.addEventListener('timeupdate', function updateTime() {
+                            const currentTime = document.querySelector(`#player-${playerId} .current-time`);
+                            const duration = document.querySelector(`#player-${playerId} .duration`);
+                            
+                            // Tempo atual
+                            const currentMinutes = Math.floor(audio.currentTime / 60);
+                            const currentSeconds = Math.floor(audio.currentTime % 60);
+                            currentTime.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+                            
+                            // Duração total
+                            if (!isNaN(audio.duration)) {
+                                const totalMinutes = Math.floor(audio.duration / 60);
+                                const totalSeconds = Math.floor(audio.duration % 60);
+                                duration.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
+                            }
+                        });
+                        
+                        // Quando terminar
+                        audio.addEventListener('ended', function() {
+                            icon.className = 'fas fa-play';
+                        });
+                    } else {
+                        audio.pause();
+                        icon.className = 'fas fa-play';
+                    }
+                    
+                    e.stopPropagation();
+                }
+            });
+            
+            // Controles de volume
+            document.addEventListener('input', function(e) {
+                if (e.target.classList.contains('volume-slider')) {
+                    const playerId = e.target.closest('.player-container').id.replace('player-', '');
+                    const audio = document.getElementById(`audio-${playerId}`);
+                    audio.volume = e.target.value;
+                }
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Carregar quando a página estiver pronta
+        document.addEventListener('DOMContentLoaded', loadAudiobooks);
+    </script>
+</body>
+</html>
