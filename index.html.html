@@ -213,7 +213,7 @@
             background-color: #b2070f;
         }
 
-        /* Audiobooks Grid - Layout infinito */
+        /* Audiobooks Grid */
         .audiobooks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -273,7 +273,7 @@
             display: block;
         }
 
-        /* Estilo para o widget do SoundCloud */
+        /* Widget SoundCloud */
         .soundcloud-widget {
             width: 100% !important;
             height: 300px !important;
@@ -402,7 +402,7 @@
             }
         }
 
-        /* Loading animation for covers */
+        /* Placeholder para capas */
         .cover-placeholder {
             width: 100%;
             height: 250px;
@@ -566,15 +566,14 @@
     </footer>
 
     <script>
-        // TODOS OS AUDIOBOOKS ORGANIZADOS EM ORDEM ALFABÉTICA
-        // Com categorias adicionadas para filtragem
+        // TODOS OS 99 AUDIOBOOKS ORGANIZADOS EM ORDEM ALFABÉTICA
         const allAudiobooks = [
             { 
                 id: 1, 
                 title: "A Bíblia Satânica", 
                 author: "Anton LaVey",
                 category: "esoterism",
-                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SO<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237324234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-biblia-satanica-anton-lavey-i-audiobook" title="A Bíblia Satânica – Anton LaVey I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bíblia Satânica – Anton LaVey I Audiobook 🎧</a></div>UNDCLOUD_AQUI`,
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237324234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-biblia-satanica-anton-lavey-i-audiobook" title="A Bíblia Satânica – Anton LaVey I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bíblia Satânica – Anton LaVey I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Q100246758B",
                 coverUrl: "https://i.ibb.co/LzyN4X5m/A-B-blia-Sat-nica-Anton-La-Vey-CAPA-TRANSPARENTE.png"
             },
@@ -583,49 +582,238 @@
                 title: "A Bruxa de Évora", 
                 author: "Mara Helena Fareli",
                 category: "esoterism",
-                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
-                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
-                coverUrl: ""
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237333507&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-bruxa-de-evora-mara-helena-fareli-i-audiobook" title="A Bruxa de Évora – Mara Helena Fareli I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bruxa de Évora – Mara Helena Fareli I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/S103317379M",
+                coverUrl: "https://i.ibb.co/Gfk9CPx3/A-Bruxa-de-vora-Mara-Helena-Fareli-CAPA-TRANSPARENTE.png"
             },
             { 
                 id: 3, 
                 title: "A Bruxa Satânica", 
                 author: "Anton LaVey",
                 category: "esoterism",
-                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
-                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
-                coverUrl: ""
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237373443&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-bruxa-satanica-anton-lavey-i-audiobook" title="A Bruxa Satânica – Anton LaVey I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bruxa Satânica – Anton LaVey I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/X100217608H",
+                coverUrl: "https://i.ibb.co/Jj6Kyqjx/A-Bruxa-Satanica-CAPA-TRANSPARENTE.png"
             },
             { 
                 id: 4, 
                 title: "A Cabala Draconiana", 
-                author: "Anônimo",
+                author: "Adriano Camargo Monteiro",
                 category: "esoterism",
-                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
-                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
-                coverUrl: ""
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237375795&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-cabala-draconiana-adriano-camargo-monteiro-i-audiobook" title="A Cabala Draconiana - Adriano Camargo Monteiro I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Cabala Draconiana - Adriano Camargo Monteiro I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/I100129561O",
+                coverUrl: "https://i.ibb.co/vxwq1NnQ/A-Cabala-Draconiana-CAPA-TRANSPARENTE.png"
             },
             { 
                 id: 5, 
                 title: "A Chave de Hiram", 
                 author: "Christopher Knight e Robert Lomas",
                 category: "esoterism",
-                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
-                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
-                coverUrl: ""
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237384345&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-chave-de-hiram-christopher-knight-e-robert-lomas-i-audiobook" title="A Chave de Hiram - Christopher Knight e Robert Lomas I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Chave de Hiram - Christopher Knight e Robert Lomas I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://mpago.li/1dZgi16",
+                coverUrl: "https://i.ibb.co/DDFg6L1D/A-Chave-de-Hiram-CAPA-TRANSPARENTE.png"
             },
             { 
                 id: 6, 
                 title: "A Epopéia de Gilgamesh", 
                 author: "Anônimo",
                 category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237390024&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-epopeia-de-gilgamesh-i-audiobook" title="A Epopéia de Gilgamesh I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Epopéia de Gilgamesh I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/H103316904W",
+                coverUrl: "https://i.ibb.co/3mhKtSfY/A-Epop-ia-de-Gilgamesh-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 7, 
+                title: "A Era de Aquário e o Paraíso Perdido", 
+                author: "Anônimo",
+                category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237393552&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-era-de-aquario-e-o-paraiso-perdido-i-audiobook" title="A Era de Aquário e o Paraíso Perdido I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Era de Aquário e o Paraíso Perdido I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/H103259527T",
+                coverUrl: "https://i.ibb.co/1GZRQwGT/A-Era-de-Aqu-rio-e-o-Para-so-Perdido-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 8, 
+                title: "A Erva do Diabo", 
+                author: "Carlos Castaneda",
+                category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237395997&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-erva-do-diabo-carlos-castaneda-i-audiobook" title="A Erva do Diabo – Carlos Castaneda I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Erva do Diabo – Carlos Castaneda I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/D100465094Y",
+                coverUrl: "https://i.ibb.co/SXQtY3jz/A-Erva-do-Diabo-Carlos-Castaneda-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 9, 
+                title: "A Fonte da Juventude", 
+                author: "Samael Aun Weor",
+                category: "self-help",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237398607&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-fonte-da-juventude-samael-aun-weor-i-audiobook" title="A Fonte da Juventude – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Fonte da Juventude – Samael Aun Weor I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/Q103320817S",
+                coverUrl: "https://i.ibb.co/sJbBYHf0/A-Fonte-da-Juventude-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 10, 
+                title: "A Grande Rebelião", 
+                author: "Samael Aun Weor",
+                category: "philosophy",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237400911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-grande-rebeliao-samael-aun-weor-i-audiobook" title="A Grande Rebelião – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Grande Rebelião – Samael Aun Weor I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/E103320940E",
+                coverUrl: "https://i.ibb.co/jkf7yV8v/A-Grande-Rebeli-o-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 11, 
+                title: "A Iniciação de Jesus", 
+                author: "Dr. R. Swinburne Clymer",
+                category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237405711&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-iniciacao-de-jesus-dr-r-swinburne-clymer-i-audiobook" title="A Iniciação de Jesus – Dr. R. Swinburne Clymer I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Iniciação de Jesus – Dr. R. Swinburne Clymer I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/T103319549G",
+                coverUrl: "https://i.ibb.co/YFSJvCMS/A-Inicia-o-de-Jesus-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 12, 
+                title: "A Metamorfose", 
+                author: "Franz Kafka",
+                category: "philosophy",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237408756&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-metamorfose-franz-kafka-i-audiobook" title="A Metamorfose – Franz Kafka I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Metamorfose – Franz Kafka I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/N100556877S",
+                coverUrl: "https://i.ibb.co/kVnmj43Y/A-Metamorfose-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 13, 
+                title: "A Nova Alquimia", 
+                author: "Osho",
+                category: "self-help",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237413790&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-nova-alquimia-osho-i-audiobook" title="A Nova Alquimia - Osho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Nova Alquimia - Osho I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/R103235779C",
+                coverUrl: "https://i.ibb.co/VY88Gcby/A-Nova-Alquimia-Osho-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 14, 
+                title: "A Pistis Sophia Desvelada", 
+                author: "Samael Aun Weor",
+                category: "esoterism",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237415479&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-pistis-sophia-desvelada-samael-aun-weor-i-audiobook" title="A Pistis Sophia Desvelada – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Pistis Sophia Desvelada – Samael Aun Weor I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/A103288782R",
+                coverUrl: "https://i.ibb.co/pvMq1dH5/A-Pistis-Sophia-Desvelada-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 15, 
+                title: "A República", 
+                author: "Platão",
+                category: "philosophy",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237417213&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-republica-platao-i-audiobook" title="A República - Platão I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A República - Platão I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/X103248427W",
+                coverUrl: "https://i.ibb.co/B5B8K0FT/A-Rep-blica-CAPA-TRANSPARENTE.png"
+            },
+            { 
+                id: 16, 
+                title: "A Revolução de Belzebu", 
+                author: "Samael Aun Weor",
+                category: "philosophy",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
                 hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
                 coverUrl: ""
             },
             { 
-                id: 7, 
-                title: "A Era de Aquário e o Paraíso Perdido", 
+                id: 17, 
+                title: "A Revolução dos Bichos", 
+                author: "George Orwell",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 18, 
+                title: "A Sabedoria Antiga", 
+                author: "Annie Besant",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 19, 
+                title: "A Sabedoria do Rio", 
+                author: "Alessandrho Pereira",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 20, 
+                title: "ABC da Maçonaria", 
+                author: "Delmar D. Darrah",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 21, 
+                title: "Alice no País das Maravilhas", 
+                author: "Lewis Carroll",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 22, 
+                title: "Amor Líquido", 
+                author: "Zygmunt Bauman",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 23, 
+                title: "Amor, Liberdade e Solidão", 
+                author: "Osho",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 24, 
+                title: "Anátema de Zos", 
+                author: "Austin Osman Spare",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 25, 
+                title: "Anathema Of Zos - The Sermon to the Hypocrites", 
+                author: "Austin Osman Spare",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 26, 
+                title: "Antes Que Você Morra", 
+                author: "Osho",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 27, 
+                title: "As Dores do Mundo", 
+                author: "Arthur Schopenhauer",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 28, 
+                title: "As Doutrinas Secretas de Jesus", 
                 author: "Anônimo",
                 category: "spirituality",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
@@ -633,17 +821,116 @@
                 coverUrl: ""
             },
             { 
-                id: 8, 
-                title: "A Erva do Diabo", 
-                author: "Carlos Castaneda",
+                id: 29, 
+                title: "As Guerras de Deuses e Homens", 
+                author: "Zecharia Sitchin",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 30, 
+                title: "Às Portas da Grande Tragédia", 
+                author: "Samael Aun Weor",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 31, 
+                title: "Assim Falava Zaratustra", 
+                author: "Friedrich Nietzsche",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 32, 
+                title: "Assim Falou Zaratustra", 
+                author: "Friedrich Nietzsche",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 33, 
+                title: "Astrologia Esotérica", 
+                author: "Interpretação da Obra de Johfra",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 34, 
+                title: "Autodefesa Psíquica", 
+                author: "Dion Fortune",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 35, 
+                title: "Brida", 
+                author: "Paulo Coelho",
                 category: "spirituality",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
                 hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
                 coverUrl: ""
             },
             { 
-                id: 9, 
-                title: "A Fonte da Juventude", 
+                id: 36, 
+                title: "Chamando Os Filhos Do Sol", 
+                author: "Marcelo Mota",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 37, 
+                title: "Clarividência", 
+                author: "C.W. Ledbeater",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 38, 
+                title: "Como Usar A Magia para Atrair Riquezas", 
+                author: "Zaydan Alkimin",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 39, 
+                title: "Corpus Hermeticum A Tábua de Esmeralda", 
+                author: "Hermes Trismegisto",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 40, 
+                title: "Dogma e Ritual da Alta Magia", 
+                author: "Eliphas Levi",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 41, 
+                title: "Educação Fundamental", 
                 author: "Samael Aun Weor",
                 category: "self-help",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
@@ -651,32 +938,528 @@
                 coverUrl: ""
             },
             { 
-                id: 10, 
-                title: "A Grande Rebelião", 
-                author: "Samael Aun Weor",
+                id: 42, 
+                title: "Eu e Outras Poesias", 
+                author: "Augusto dos Anjos",
                 category: "philosophy",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
                 hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
                 coverUrl: ""
             },
-            // ... (continuação dos outros 89 audiobooks com categorias)
-            // Para economizar espaço no exemplo, mantenho apenas os 10 primeiros
-            // O restante seguirá o mesmo padrão
-        ];
-
-        // Adicionando mais alguns exemplos para demonstrar a funcionalidade
-        // Em um projeto real, todos os 99 estariam aqui
-        for (let i = 11; i <= 99; i++) {
-            allAudiobooks.push({
-                id: i,
-                title: `Audiobook Exemplo ${i}`,
-                author: "Autor Desconhecido",
-                category: ["philosophy", "esoterism", "spirituality", "self-help"][Math.floor(Math.random() * 4)],
+            { 
+                id: 43, 
+                title: "Eu Venho de Longe", 
+                author: "Mestre Irineu",
+                category: "spirituality",
                 soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
                 hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
                 coverUrl: ""
-            });
-        }
+            },
+            { 
+                id: 44, 
+                title: "Feitiçaria - A Tradição Renovada", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 45, 
+                title: "Filho do Fogo - Vol. 1 - A Semente do Mal", 
+                author: "Daniel Mastral",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 46, 
+                title: "Filho do Fogo - Vol.2 - O Descortinar da Alta Magia", 
+                author: "Daniel Mastral",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 47, 
+                title: "Filosofia Oculta do Amor e do Matrimônio", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 48, 
+                title: "Flores do Mal", 
+                author: "Charles Baudelaire",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 49, 
+                title: "Grimorium Imperium", 
+                author: "Dr. John Dee",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 50, 
+                title: "Hercólubus", 
+                author: "Mestre Raboldi",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 51, 
+                title: "Kenneth Grant Collection", 
+                author: "Kenneth Grant",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 52, 
+                title: "Lúcifer", 
+                author: "Samael Aun Weor",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 53, 
+                title: "Lúcifer e Lógos", 
+                author: "Huberto Rohden",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 54, 
+                title: "Magia de Redenção", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 55, 
+                title: "Magnus Opus", 
+                author: "Samael Aun Weor",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 56, 
+                title: "Manifesto do Partido Comunista", 
+                author: "Karl Marx e Friedrich Engels",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 57, 
+                title: "Manual Prático do Vampirismo", 
+                author: "Paulo Coelho",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 58, 
+                title: "Meditações", 
+                author: "Marco Aurélio",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 59, 
+                title: "Memórias do Subsolo", 
+                author: "Fiódor Dostoiévski",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 60, 
+                title: "O Alquimista", 
+                author: "Paulo Coelho",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 61, 
+                title: "O Anticristo", 
+                author: "Friedrich Nietzsche",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 62, 
+                title: "O Bahir - O Livro da Iluminação", 
+                author: "Anônimo",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 63, 
+                title: "O Caibalion", 
+                author: "Os Três Iniciados",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 64, 
+                title: "O Caminho do Xamã", 
+                author: "Michael Harner",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 65, 
+                title: "O Chamado de Cthulhu", 
+                author: "H. P. Lovecraft",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 66, 
+                title: "O Cristianismo Esotérico ou os Mistérios Menores", 
+                author: "Annie Besant",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 67, 
+                title: "O Diário de um Mago", 
+                author: "Paulo Coelho",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 68, 
+                title: "O Governo Oculto do Mundo", 
+                author: "Henrique Rosa",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 69, 
+                title: "O Guardião da Meia Noite", 
+                author: "Rubens Saraceni",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 70, 
+                title: "O Guardião das Sete Encruzilhadas", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 71, 
+                title: "O Guardião dos Caminhos", 
+                author: "Rubens Saraceni",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 72, 
+                title: "O Homem Mais Rico da Babilônia", 
+                author: "George S. Clason",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 73, 
+                title: "O Livro Amarelo", 
+                author: "Samael Aun Weor",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 74, 
+                title: "O Livro da Lei", 
+                author: "Aleister Crowley",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 75, 
+                title: "O Livro de Enoch", 
+                author: "Enoch",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 76, 
+                title: "O Livro de Thoth", 
+                author: "Aleister Crowley",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 77, 
+                title: "O Livro que Diz a Verdade", 
+                author: "Rael",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 78, 
+                title: "O Matrimônio Perfeito", 
+                author: "Samael Aun Weor",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 79, 
+                title: "O Persifal Desvelado", 
+                author: "Samael Aun Weor",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 80, 
+                title: "O Poder da Ressonância Harmônica", 
+                author: "Hélio Couto",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 81, 
+                title: "O Príncipe", 
+                author: "Nicolau Maquiavel",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 82, 
+                title: "O Profeta", 
+                author: "Kahlil Gibran",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 83, 
+                title: "O Renascer da Magia", 
+                author: "Kenneth Grant",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 84, 
+                title: "Ocultismo Prático", 
+                author: "H. P. Blavatsky",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 85, 
+                title: "Os Pilares de Tubalcaim - A Tradição Luciferiana", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 86, 
+                title: "Pai Rico, Pai Pobre", 
+                author: "Robert Kiyosaki",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 87, 
+                title: "Poemas Malditos", 
+                author: "Álvares de Azevedo",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 88, 
+                title: "Santo Anjo Guardião", 
+                author: "Anônimo",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 89, 
+                title: "São Cipriano - O Bruxo", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 90, 
+                title: "Sim Há Diabo, Sim Há Karma", 
+                author: "Anônimo",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 91, 
+                title: "Tantra - Espiritualidade e Sexo", 
+                author: "Osho",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 92, 
+                title: "Tao Te Ching", 
+                author: "Lao Tse",
+                category: "philosophy",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 93, 
+                title: "The Alchemist", 
+                author: "Paulo Coelho",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 94, 
+                title: "The Book of the Law", 
+                author: "Aleister Crowley",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 95, 
+                title: "The Dark Lord", 
+                author: "Peter Levenda",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 96, 
+                title: "The Wisdom of the River", 
+                author: "Alessandrho Pereira",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 97, 
+                title: "Tratado de Psicologia Revolucionária", 
+                author: "Samael Aun Weor",
+                category: "self-help",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 98, 
+                title: "Wicca - Crenças e Práticas", 
+                author: "Gary Cantrell",
+                category: "esoterism",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            },
+            { 
+                id: 99, 
+                title: "Zohar - O Livro do Esplendor", 
+                author: "Anônimo",
+                category: "spirituality",
+                soundcloudEmbed: `COLE_O_CÓDIGO_DO_SOUNDCLOUD_AQUI`,
+                hotmartLink: "COLE_SEU_LINK_HOTMART_AQUI",
+                coverUrl: ""
+            }
+        ];
 
         // Função para gerar cores baseadas no ID
         function getColorFromId(id) {
@@ -818,8 +1601,8 @@
         function loadAudiobooks() {
             filterAudiobooks();
             
-            console.log("✅ Catálogo carregado com sistema de busca!");
-            console.log("🔍 Use a barra de pesquisa para encontrar audiobooks rapidamente");
+            console.log("✅ Catálogo carregado com 99 audiobooks!");
+            console.log("🔍 Sistema de busca e filtros funcionando perfeitamente");
         }
 
         // Adicionar eventos aos cards
