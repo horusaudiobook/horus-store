@@ -490,6 +490,24 @@
             background-color: #b2070f;
             transform: translateY(-3px);
         }
+        
+        /* Novos Estilos para a Seção de Lançamentos */
+        .new-releases-section {
+            margin-bottom: 50px;
+        }
+        
+        .new-release-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e50914;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -544,7 +562,14 @@
             </div>
         </div>
         
-        <!-- Grid de Audiobooks -->
+        <!-- NOVA SEÇÃO: LANÇAMENTOS -->
+        <div class="new-releases-section">
+            <h2 class="section-title">LANÇAMENTOS</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #a3a3a3;">Os audiobooks mais recentes adicionados ao nosso catálogo</p>
+            <div class="audiobooks-grid" id="new-releases-list"></div>
+        </div>
+        
+        <!-- Grid de Audiobooks - CATÁLOGO COMPLETO -->
         <h2 class="section-title">CATÁLOGO COMPLETO DE AUDIOBOOKS</h2>
         <div class="audiobooks-grid" id="audiobooks-list"></div>
         
@@ -577,7 +602,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237324234&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-biblia-satanica-anton-lavey-i-audiobook" title="A Bíblia Satânica – Anton LaVey I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bíblia Satânica – Anton LaVey I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Q100246758B",
-                coverUrl: "https://i.ibb.co/LzyN4X5m/A-B-blia-Sat-nica-Anton-La-Vey-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/LzyN4X5m/A-B-blia-Sat-nica-Anton-La-Vey-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 2, 
@@ -586,7 +612,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237333507&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-bruxa-de-evora-mara-helena-fareli-i-audiobook" title="A Bruxa de Évora – Mara Helena Fareli I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bruxa de Évora – Mara Helena Fareli I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/S103317379M",
-                coverUrl: "https://i.ibb.co/Gfk9CPx3/A-Bruxa-de-vora-Mara-Helena-Fareli-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Gfk9CPx3/A-Bruxa-de-vora-Mara-Helena-Fareli-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 3, 
@@ -595,7 +622,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237373443&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-bruxa-satanica-anton-lavey-i-audiobook" title="A Bruxa Satânica – Anton LaVey I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Bruxa Satânica – Anton LaVey I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/X100217608H",
-                coverUrl: "https://i.ibb.co/Jj6Kyqjx/A-Bruxa-Satanica-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Jj6Kyqjx/A-Bruxa-Satanica-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 4, 
@@ -604,7 +632,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237375795&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-cabala-draconiana-adriano-camargo-monteiro-i-audiobook" title="A Cabala Draconiana - Adriano Camargo Monteiro I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Cabala Draconiana - Adriano Camargo Monteiro I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/I100129561O",
-                coverUrl: "https://i.ibb.co/vxwq1NnQ/A-Cabala-Draconiana-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/vxwq1NnQ/A-Cabala-Draconiana-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 5, 
@@ -613,7 +642,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237384345&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-chave-de-hiram-christopher-knight-e-robert-lomas-i-audiobook" title="A Chave de Hiram - Christopher Knight e Robert Lomas I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Chave de Hiram - Christopher Knight e Robert Lomas I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://mpago.li/1dZgi16",
-                coverUrl: "https://i.ibb.co/DDFg6L1D/A-Chave-de-Hiram-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/DDFg6L1D/A-Chave-de-Hiram-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 6, 
@@ -622,7 +652,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237390024&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-epopeia-de-gilgamesh-i-audiobook" title="A Epopéia de Gilgamesh I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Epopéia de Gilgamesh I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H103316904W",
-                coverUrl: "https://i.ibb.co/3mhKtSfY/A-Epop-ia-de-Gilgamesh-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/3mhKtSfY/A-Epop-ia-de-Gilgamesh-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 7, 
@@ -631,7 +662,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237393552&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-era-de-aquario-e-o-paraiso-perdido-i-audiobook" title="A Era de Aquário e o Paraíso Perdido I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Era de Aquário e o Paraíso Perdido I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H103259527T",
-                coverUrl: "https://i.ibb.co/1GZRQwGT/A-Era-de-Aqu-rio-e-o-Para-so-Perdido-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/1GZRQwGT/A-Era-de-Aqu-rio-e-o-Para-so-Perdido-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 8, 
@@ -640,7 +672,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237395997&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-erva-do-diabo-carlos-castaneda-i-audiobook" title="A Erva do Diabo – Carlos Castaneda I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Erva do Diabo – Carlos Castaneda I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/D100465094Y",
-                coverUrl: "https://i.ibb.co/SXQtY3jz/A-Erva-do-Diabo-Carlos-Castaneda-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/SXQtY3jz/A-Erva-do-Diabo-Carlos-Castaneda-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 9, 
@@ -649,7 +682,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237398607&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-fonte-da-juventude-samael-aun-weor-i-audiobook" title="A Fonte da Juventude – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Fonte da Juventude – Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Q103320817S",
-                coverUrl: "https://i.ibb.co/sJbBYHf0/A-Fonte-da-Juventude-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/sJbBYHf0/A-Fonte-da-Juventude-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 10, 
@@ -658,7 +692,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237400911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-grande-rebeliao-samael-aun-weor-i-audiobook" title="A Grande Rebelião – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Grande Rebelião – Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/E103320940E",
-                coverUrl: "https://i.ibb.co/jkf7yV8v/A-Grande-Rebeli-o-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/jkf7yV8v/A-Grande-Rebeli-o-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 11, 
@@ -667,7 +702,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237405711&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-iniciacao-de-jesus-dr-r-swinburne-clymer-i-audiobook" title="A Iniciação de Jesus – Dr. R. Swinburne Clymer I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Iniciação de Jesus – Dr. R. Swinburne Clymer I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/T103319549G",
-                coverUrl: "https://i.ibb.co/YFSJvCMS/A-Inicia-o-de-Jesus-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/YFSJvCMS/A-Inicia-o-de-Jesus-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 12, 
@@ -676,7 +712,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237408756&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-metamorfose-franz-kafka-i-audiobook" title="A Metamorfose – Franz Kafka I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Metamorfose – Franz Kafka I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/N100556877S",
-                coverUrl: "https://i.ibb.co/kVnmj43Y/A-Metamorfose-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/kVnmj43Y/A-Metamorfose-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 13, 
@@ -685,7 +722,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237413790&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-nova-alquimia-osho-i-audiobook" title="A Nova Alquimia - Osho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Nova Alquimia - Osho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/R103235779C",
-                coverUrl: "https://i.ibb.co/VY88Gcby/A-Nova-Alquimia-Osho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/VY88Gcby/A-Nova-Alquimia-Osho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 14, 
@@ -694,7 +732,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237415479&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-pistis-sophia-desvelada-samael-aun-weor-i-audiobook" title="A Pistis Sophia Desvelada – Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Pistis Sophia Desvelada – Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A103288782R",
-                coverUrl: "https://i.ibb.co/pvMq1dH5/A-Pistis-Sophia-Desvelada-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/pvMq1dH5/A-Pistis-Sophia-Desvelada-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 15, 
@@ -703,7 +742,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237417213&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-republica-platao-i-audiobook" title="A República - Platão I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A República - Platão I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/X103248427W",
-                coverUrl: "https://i.ibb.co/B5B8K0FT/A-Rep-blica-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/B5B8K0FT/A-Rep-blica-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 16, 
@@ -712,7 +752,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237440298&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-revolucao-de-belzebu-samael-aun-weor-i-audiobook" title="A Revolução de Belzebu - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Revolução de Belzebu - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/F103253247V",
-                coverUrl: "https://i.ibb.co/qM2KSDS4/A-Revolu-o-de-Belzebu-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/qM2KSDS4/A-Revolu-o-de-Belzebu-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 17, 
@@ -721,7 +762,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237442461&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-revolucao-dos-bichos-george-orwell-i-audiobook" title="A Revolução dos Bichos - George Orwell I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Revolução dos Bichos - George Orwell I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Y103238967J",
-                coverUrl: "https://i.ibb.co/Xk5NndGg/A-Revolu-o-dos-Bichos-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Xk5NndGg/A-Revolu-o-dos-Bichos-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 18, 
@@ -730,7 +772,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237444630&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-sabedoria-antiga-annie-besant-i-audiobook" title="A Sabedoria Antiga – Annie Besant I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Sabedoria Antiga – Annie Besant I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C103332076U",
-                coverUrl: "https://i.ibb.co/vvV4mXYm/A-Sabedoria-Antiga-Annie-Besant-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/vvV4mXYm/A-Sabedoria-Antiga-Annie-Besant-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 19, 
@@ -739,7 +782,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237446265&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/a-sabedoria-do-rio-alessandrho-pereira-audiobook" title="A Sabedoria do Rio -  Alessàndrho Peréira | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">A Sabedoria do Rio -  Alessàndrho Peréira | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/X102478125W",
-                coverUrl: "https://i.ibb.co/MDCsb88B/A-Sabedoria-do-Rio-Aless-ndrho-Per-ira-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/MDCsb88B/A-Sabedoria-do-Rio-Aless-ndrho-Per-ira-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 20, 
@@ -748,7 +792,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237447855&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/abc-da-maconaria-delmar-d-darrah-i-audiobook" title="ABC da Maçonaria – Delmar D. Darrah I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">ABC da Maçonaria – Delmar D. Darrah I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H103332731X",
-                coverUrl: "https://i.ibb.co/7x11037t/ABC-da-MAC-ONARIA-Delmar-D-Darrah-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/7x11037t/ABC-da-MAC-ONARIA-Delmar-D-Darrah-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 21, 
@@ -757,7 +802,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237449217&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/alice-no-pais-das-maravilhas-lewis-carroll-i-audiobook" title="Alice no País das Maravilhas – Lewis Carroll I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Alice no País das Maravilhas – Lewis Carroll I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C102105414Q",
-                coverUrl: "https://i.ibb.co/dJ5PsMzL/Alice-no-Pa-s-das-Maravilhas-Lewis-Carroll-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/dJ5PsMzL/Alice-no-Pa-s-das-Maravilhas-Lewis-Carroll-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 22, 
@@ -766,7 +812,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237450804&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/amor-liquido-zygmunt-bauman-i-audiobook" title="Amor Líquido – Zygmunt Bauman I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Amor Líquido – Zygmunt Bauman I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/I103281202I",
-                coverUrl: "https://i.ibb.co/v6sCq8R1/Amor-L-quido-Zygmunt-Bauman-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/v6sCq8R1/Amor-L-quido-Zygmunt-Bauman-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 23, 
@@ -775,7 +822,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237452232&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/amor-liberdade-e-solidao-osho-i-audiobook" title="Amor, Liberdade e Solidão – Osho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Amor, Liberdade e Solidão – Osho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/N100090675H",
-                coverUrl: "https://i.ibb.co/LDmh1xnb/Amor-Liberdade-e-Solid-o-Osho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/LDmh1xnb/Amor-Liberdade-e-Solid-o-Osho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 24, 
@@ -784,7 +832,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237454080&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/anatema-de-zos-sermao-aos-hipocritas-austin-osman-spare-i-audiobook" title="Anátema de Zos – Sermão aos Hipócritas - Austin Osman Spare I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Anátema de Zos – Sermão aos Hipócritas - Austin Osman Spare I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/D103233883L",
-                coverUrl: "https://i.ibb.co/6QkLTKC/An-tema-de-Zos-Austin-Osman-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/6QkLTKC/An-tema-de-Zos-Austin-Osman-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 25, 
@@ -793,7 +842,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237457479&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/anathema-of-zos-the-sermon-to-the-hypocrites-austin-osman-spare-i-audiobook" title="Anathema of Zos – The Sermon to the Hypocrites – Austin Osman Spare I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Anathema of Zos – The Sermon to the Hypocrites – Austin Osman Spare I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/bysnk",
-                coverUrl: "https://i.ibb.co/DDRKgN0T/Anathema-Of-Zos-The-Sermon-to-the-Hypocrites-Austin-Osman-Spare-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/DDRKgN0T/Anathema-Of-Zos-The-Sermon-to-the-Hypocrites-Austin-Osman-Spare-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 26, 
@@ -802,7 +852,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237459192&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/antes-que-voce-morra-osho-i-audiobook" title="Antes que Você Morra – Osho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Antes que Você Morra – Osho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/K103198555M",
-                coverUrl: "https://i.ibb.co/wrBbbgs2/Antes-Que-Voce-Morra-Osho-CAPA-TRASNPARENTE.png"
+                coverUrl: "https://i.ibb.co/wrBbbgs2/Antes-Que-Voce-Morra-Osho-CAPA-TRASNPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 27, 
@@ -811,7 +862,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237461877&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/as-dores-do-mundo-arthur-schopenhauer-i-audiobook" title="As Dores do Mundo - Arthur Schopenhauer I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">As Dores do Mundo - Arthur Schopenhauer I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/O103264857V",
-                coverUrl: "https://i.ibb.co/XcpPqBk/As-Dores-do-Mundo-Schopenhauer-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/XcpPqBk/As-Dores-do-Mundo-Schopenhauer-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 28, 
@@ -820,7 +872,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237496788&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/as-doutrinas-secretas-de-jesus-h-spencer-lewis-i-audiobook" title="As Doutrinas Secretas de Jesus – H. Spencer Lewis I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">As Doutrinas Secretas de Jesus – H. Spencer Lewis I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/M103300055P",
-                coverUrl: "https://i.ibb.co/qMhTR2Ld/As-doutrinas-secretas-de-Jesus-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/qMhTR2Ld/As-doutrinas-secretas-de-Jesus-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 29, 
@@ -829,7 +882,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237498501&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/as-guerras-dos-deuses-e-dos-homens-zecharia-sitchin-i-audiobook" title="As Guerras dos Deuses e dos Homens – Zecharia Sitchin I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">As Guerras dos Deuses e dos Homens – Zecharia Sitchin I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Y103300153J",
-                coverUrl: "https://i.ibb.co/hJ3S4LP8/As-Guerras-de-Deuses-e-Homens-Zecharia-Sitchin-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/hJ3S4LP8/As-Guerras-de-Deuses-e-Homens-Zecharia-Sitchin-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 30, 
@@ -838,7 +892,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237500124&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/as-portas-da-grande-tragedia-samael-aun-weor-i-audiobook" title="Às Portas Da Grande Tragédia - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Às Portas Da Grande Tragédia - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/U103268485H",
-                coverUrl: "https://i.ibb.co/Xr7rkKDv/s-Portas-Da-Grande-Trag-dia-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Xr7rkKDv/s-Portas-Da-Grande-Trag-dia-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 31, 
@@ -847,7 +902,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237501729&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/assim-falava-zaratustra-friedrich-nietzsche-audiobook" title="Assim Falava Zaratustra – Friedrich Nietzsche | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Assim Falava Zaratustra – Friedrich Nietzsche | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/W102226753O",
-                coverUrl: "https://i.ibb.co/rGzRXPnX/Assim-Falava-Zaratustra-Friedrich-Nietzche-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/rGzRXPnX/Assim-Falava-Zaratustra-Friedrich-Nietzche-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 32, 
@@ -856,7 +912,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237504825&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/assim-falou-zaratustra-nietzche-i-audiobook" title="Assim Falou Zaratustra - Nietzche I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Assim Falou Zaratustra - Nietzche I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://mpago.la/2zXxjAq",
-                coverUrl: "https://i.ibb.co/gZCGz29f/Assim-Falou-Zaratustra-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/gZCGz29f/Assim-Falou-Zaratustra-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 33, 
@@ -865,7 +922,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237506265&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/astrologia-esoterica-interpretacao-da-obra-de-johfra-i-audiobook" title="Astrologia Esotérica – Interpretação da Obra de Johfra I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Astrologia Esotérica – Interpretação da Obra de Johfra I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/W103341686P",
-                coverUrl: "https://i.ibb.co/PvS8qmLf/Astrologia-Esot-rica-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/PvS8qmLf/Astrologia-Esot-rica-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 34, 
@@ -874,7 +932,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237508215&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/autodefesa-psiquica-dion-fortune-i-audiobook" title="Autodefesa Psíquica – Dion Fortune I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Autodefesa Psíquica – Dion Fortune I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/E103324805M",
-                coverUrl: "https://i.ibb.co/7dwFcVnD/Autodefesa-Psiquica-Dion-Fortune-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/7dwFcVnD/Autodefesa-Psiquica-Dion-Fortune-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 35, 
@@ -883,7 +942,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237509391&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/brida-paulo-coelho-i-audiobook" title="Brida – Paulo Coelho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Brida – Paulo Coelho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/T100133815Y",
-                coverUrl: "https://i.ibb.co/B50pzRxs/Brida-Paulo-Coelho-CAPA-TRNSPARENTE.png"
+                coverUrl: "https://i.ibb.co/B50pzRxs/Brida-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 36, 
@@ -892,7 +952,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237510762&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/chamando-os-filhos-do-sol-marcelo-motta-i-audiobook" title="Chamando os Filhos do Sol – Marcelo Motta I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Chamando os Filhos do Sol – Marcelo Motta I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/G103306418A",
-                coverUrl: "https://i.ibb.co/r1BxsDv/Chamando-Os-Filhos-Do-Sol-Marcelo-Mota-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/r1BxsDv/Chamando-Os-Filhos-Do-Sol-Marcelo-Mota-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 37, 
@@ -901,7 +962,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237512223&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/clarividencia-cw-ledbeater-i-audiobook" title="Clarividência - C.W. Ledbeater I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Clarividência - C.W. Ledbeater I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Y103304576M",
-                coverUrl: "https://i.ibb.co/7xmGy7Sv/Clarivid-ncia-C-W-Ledbeater-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/7xmGy7Sv/Clarivid-ncia-C-W-Ledbeater-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 38, 
@@ -910,7 +972,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237513663&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/como-usar-a-magia-para-atrair-riquezas-zaydan-alkimin-i-audiobook" title="Como Usar a Magia para Atrair Riquezas – Zaydan Alkimin I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Como Usar a Magia para Atrair Riquezas – Zaydan Alkimin I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/J103306088Q",
-                coverUrl: "https://i.ibb.co/WNXJnGSp/Como-Usar-A-Magia-para-Atrair-Riquezas-Zaydan-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/WNXJnGSp/Como-Usar-A-Magia-para-Atrair-Riquezas-Zaydan-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 39, 
@@ -919,7 +982,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237514977&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/corpus-hermeticum-a-tabua-de-esmeralda-i-audiobook" title="Corpus Hermeticum – A Tábua de Esmeralda I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Corpus Hermeticum – A Tábua de Esmeralda I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/J103341949Q",
-                coverUrl: "https://i.ibb.co/VYfhhvJq/Corpus-Hermeticum-A-T-bua-de-Esmeralda-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/VYfhhvJq/Corpus-Hermeticum-A-T-bua-de-Esmeralda-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 40, 
@@ -928,7 +992,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238366485&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/dogma-e-ritual-da-alta-magia-eliphas-levi-i-audiobook" title="Dogma e Ritual da Alta Magia – Eliphas Levi I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Dogma e Ritual da Alta Magia – Eliphas Levi I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/F103358838L",
-                coverUrl: "https://i.ibb.co/MxB8P83p/Dogma-e-Ritual-da-Alta-Magia-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/MxB8P83p/Dogma-e-Ritual-da-Alta-Magia-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 41, 
@@ -937,7 +1002,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237842472&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/educacao-fundamental-samael-aun-weor-i-audiobook" title="Educação Fundamental - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Educação Fundamental - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/T103266804O",
-                coverUrl: "https://i.ibb.co/7NN7TRZv/Educacao-Fundamental-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/7NN7TRZv/Educacao-Fundamental-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 42, 
@@ -946,7 +1012,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237845355&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/eu-e-outras-poesias-augusto-dos-anjos-i-audiobook" title="Eu e Outras Poesias – Augusto dos Anjos I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Eu e Outras Poesias – Augusto dos Anjos I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/N100415538Y",
-                coverUrl: "https://i.ibb.co/5W0XVx4P/Eu-e-Outras-Posias-Augusto-dos-Anjos-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/5W0XVx4P/Eu-e-Outras-Posias-Augusto-dos-Anjos-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 43, 
@@ -955,7 +1022,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237847797&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/eu-venho-de-longe-mestre-irineu-e-seus-companheiros-i-audiobook" title="Eu Venho de Longe – Mestre Irineu e seus Companheiros I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Eu Venho de Longe – Mestre Irineu e seus Companheiros I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Y103523444L",
-                coverUrl: "https://i.ibb.co/BHH8wBnF/Eu-venho-de-longe-Mestre-Irineu-e-seus-compnheiros-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/BHH8wBnF/Eu-venho-de-longe-Mestre-Irineu-e-seus-compnheiros-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 44, 
@@ -964,7 +1032,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237850401&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/feiticaria-a-tradicao-renovada-doreen-valiente-evan-john-jones-i-audiobook" title="Feitiçaria – A Tradição Renovada – Doreen Valiente &amp; Evan John Jones I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Feitiçaria – A Tradição Renovada – Doreen Valiente &amp; Evan John Jones I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/V103403269J",
-                coverUrl: "https://i.ibb.co/1YBXX0RP/Feiti-aria-A-Tradi-o-Renovada-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/1YBXX0RP/Feiti-aria-A-Tradi-o-Renovada-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 45, 
@@ -973,7 +1042,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237852534&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/filho-do-fogo-vol-1-a-semente" title="Filho do Fogo - Vol. 1 - A Semente do Mal - Daniel Mastral 1 MINUTO" target="_blank" style="color: #cccccc; text-decoration: none;">Filho do Fogo - Vol. 1 - A Semente do Mal - Daniel Mastral 1 MINUTO</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/F103290225H",
-                coverUrl: "https://i.ibb.co/ynsfY9nz/Filho-do-Fogo-Vol-1-A-Semente-do-Mal-Daniel-Mastral-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/ynsfY9nz/Filho-do-Fogo-Vol-1-A-Semente-do-Mal-Daniel-Mastral-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 46, 
@@ -982,7 +1052,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237857274&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/filho-do-fogo-volume-2-o-descortinar-da-alta-magia-daniel-mastral-i-audiobook" title="Filho do Fogo - Volume 2 - O Descortinar da Alta Magia - Daniel Mastral I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Filho do Fogo - Volume 2 - O Descortinar da Alta Magia - Daniel Mastral I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C103293684R",
-                coverUrl: "https://i.ibb.co/SDMDHCSG/Filho-do-Fogo-Vol-2-O-Descortinar-da-Alta-Magia-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/SDMDHCSG/Filho-do-Fogo-Vol-2-O-Descortinar-da-Alta-Magia-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 47, 
@@ -991,7 +1062,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237865926&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/filosofia-oculta-do-amor-e-do-matrimonio-dion-fortune-i-audiobook" title="Filosofia Oculta do Amor e do Matrimônio – Dion Fortune I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Filosofia Oculta do Amor e do Matrimônio – Dion Fortune I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://mpago.la/1DWUQk5",
-                coverUrl: "https://i.ibb.co/svr6nR5Q/Filosofia-Oculta-do-Amor-e-do-Matrimonio-Dion-Fortune-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/svr6nR5Q/Filosofia-Oculta-do-Amor-e-do-Matrimonio-Dion-Fortune-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 48, 
@@ -1000,7 +1072,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237868485&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/as-flores-do-mal-charles-baudelaire-i-audiobook" title="As Flores do Mal – Charles Baudelaire I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">As Flores do Mal – Charles Baudelaire I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H100791701W",
-                coverUrl: "https://i.ibb.co/N6nxzwPS/Flores-do-Mal-Baudelaire-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/N6nxzwPS/Flores-do-Mal-Baudelaire-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 49, 
@@ -1009,7 +1082,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237870144&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/grimorium-imperium-dr-john-dee-i-audiobook" title="Grimorium Imperium – Dr. John Dee I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Grimorium Imperium – Dr. John Dee I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/U103370617D",
-                coverUrl: "https://i.ibb.co/QjjnRFrc/Grimorium-Imperium-Dr-John-Dee-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/QjjnRFrc/Grimorium-Imperium-Dr-John-Dee-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 50, 
@@ -1018,7 +1092,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237892737&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/hercolubus-o-planeta-vermelho-mestre-rabolu-i-audiobook" title="Hercólubus – O Planeta Vermelho – Mestre Rabolú I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Hercólubus – O Planeta Vermelho – Mestre Rabolú I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/D103527072N",
-                coverUrl: "https://i.ibb.co/8DCNPVgR/Herc-lubus-Mestre-Rabol-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/8DCNPVgR/Herc-lubus-Mestre-Rabol-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 51, 
@@ -1027,7 +1102,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237903390&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/the-complete-typhonian-trilogy-kenneth-grant-audiobook" title="The Complete Typhonian Trilogy - Kenneth Grant | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">The Complete Typhonian Trilogy - Kenneth Grant | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/gsypu",
-                coverUrl: "https://i.ibb.co/v2n9s5c/KENNETH-GRANT-COLECTION-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/v2n9s5c/KENNETH-GRANT-COLECTION-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 52, 
@@ -1036,7 +1112,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237905175&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/lucifer-samael-aun-weor-i-audiobook" title="Lúcifer - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Lúcifer - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A103270911T",
-                coverUrl: "https://i.ibb.co/5hXXQL70/L-cifer-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/5hXXQL70/L-cifer-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 53, 
@@ -1045,7 +1122,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237906948&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/lucifer-e-logos-huberto-rohden-i-audiobook" title="Lúcifer e Lógos – Huberto Rohden I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Lúcifer e Lógos – Huberto Rohden I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/E103370828O",
-                coverUrl: "https://i.ibb.co/mWGbStx/L-cifer-e-L-gos-Huberto-Rohden-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/mWGbStx/L-cifer-e-L-gos-Huberto-Rohden-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 54, 
@@ -1054,7 +1132,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237908403&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/magia-de-redencao-ensinamentos-de-ramatis-i-audiobook" title="Magia de Redenção – Ensinamentos de Ramatís I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Magia de Redenção – Ensinamentos de Ramatís I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/O103231550W",
-                coverUrl: "https://i.ibb.co/HJCQyS4/Magia-de-Redencao-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/HJCQyS4/Magia-de-Redencao-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 55, 
@@ -1063,7 +1142,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237910569&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/magnus-opus-samael-aun-weor-i-audiobook" title="Magnus Opus - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Magnus Opus - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A103267895O",
-                coverUrl: "https://i.ibb.co/XfGM2vJM/Magnus-Opus-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/XfGM2vJM/Magnus-Opus-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 56, 
@@ -1072,7 +1152,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237912033&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/manifesto-do-partido-comunista-karl-marx-e-friedrich-engels-i-audiobook" title="Manifesto do Partido Comunista – Karl Marx e Friedrich Engels I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Manifesto do Partido Comunista – Karl Marx e Friedrich Engels I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/K103422075W",
-                coverUrl: "https://i.ibb.co/nsLn60pT/O-Manifesto-Comunista-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/nsLn60pT/O-Manifesto-Comunista-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 57, 
@@ -1081,7 +1162,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238323513&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/manual-pratico-do-vampirismo-paulo-coelho-i-audiobook" title="Manual Prático do Vampirismo - Paulo Coelho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Manual Prático do Vampirismo - Paulo Coelho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/G100154952N",
-                coverUrl: "https://i.ibb.co/dsvDc0yF/Manual-Pr-tico-do-Vampirismo-Paulo-Coelho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/dsvDc0yF/Manual-Pr-tico-do-Vampirismo-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 58, 
@@ -1090,7 +1172,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238332231&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/meditacoes-marco-aurelio-i-audiobook" title="Meditações – Marco Aurélio I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Meditações – Marco Aurélio I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/N103234570V",
-                coverUrl: "https://i.ibb.co/MkZXyTvD/Medita-es-Marco-Aur-lio-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/MkZXyTvD/Medita-es-Marco-Aur-lio-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 59, 
@@ -1099,7 +1182,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238342731&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/memorias-do-subsolo-fiodor-dostoievski-i-audiobook" title="Memórias do Subsolo – Fiódor Dostoiévski I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Memórias do Subsolo – Fiódor Dostoiévski I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/N102026357K",
-                coverUrl: "https://i.ibb.co/LhkP7QVH/Mem-rias-do-Subsolo-Dostoievski-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/LhkP7QVH/Mem-rias-do-Subsolo-Dostoievski-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 60, 
@@ -1108,7 +1192,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238354398&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-alquimista-paulo-coelho-1" title="O Alquimista - Paulo Coelho 1 MINUTO" target="_blank" style="color: #cccccc; text-decoration: none;">O Alquimista - Paulo Coelho 1 MINUTO</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/U103431749C",
-                coverUrl: "https://i.ibb.co/LzrxrZYG/O-Alquimista-Paulo-Coelho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/LzrxrZYG/O-Alquimista-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 61, 
@@ -1117,7 +1202,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2237073119&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-anticristo-friedrich-nietzsche" title="O Anticristo - Friedrich Nietzsche" target="_blank" style="color: #cccccc; text-decoration: none;">O Anticristo - Friedrich Nietzsche</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/W103249025L",
-                coverUrl: "https://i.ibb.co/QvMV2CRy/O-Anticristo-Friedrich-Nietzsche-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/QvMV2CRy/O-Anticristo-Friedrich-Nietzsche-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 62, 
@@ -1126,7 +1212,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238384659&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-bahir-o-livro-da-iluminacao-i-audiobook" title="O Bahir – O Livro da Iluminação I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Bahir – O Livro da Iluminação I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/I103351866T",
-                coverUrl: "https://i.ibb.co/sJgYqRFM/O-Bahir-O-Livro-da-Ilumina-o-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/sJgYqRFM/O-Bahir-O-Livro-da-Ilumina-o-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 63, 
@@ -1135,7 +1222,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238388649&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-caibalion-i-audiobook" title="O Caibalion I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Caibalion I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C103223088W",
-                coverUrl: "https://i.ibb.co/SDfY8S0q/O-Caibalion-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/SDfY8S0q/O-Caibalion-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 64, 
@@ -1144,7 +1232,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238392450&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-caminho-do-xama-michael-harner-i-audiobook" title="O Caminho do Xamã – Michael Harner I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Caminho do Xamã – Michael Harner I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/S100536608X",
-                coverUrl: "https://i.ibb.co/G4D6VzBJ/O-Caminho-do-Xam-Michael-Harner-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/G4D6VzBJ/O-Caminho-do-Xam-Michael-Harner-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 65, 
@@ -1153,7 +1242,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238396017&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-chamado-de-cthulhu-h-p" title="O Chamado de Cthulhu – H. P. Lovecraft" target="_blank" style="color: #cccccc; text-decoration: none;">O Chamado de Cthulhu – H. P. Lovecraft</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/D103371021T",
-                coverUrl: "https://i.ibb.co/k6yD1qnh/O-Chamado-de-Cthulhu-H-P-Lovecraft-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/k6yD1qnh/O-Chamado-de-Cthulhu-H-P-Lovecraft-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 66, 
@@ -1162,7 +1252,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238405977&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-cristianismo-esoterico-ou-os-misterios-menores-annie-besant-i-audiobook" title="O Cristianismo Esotérico ou os Mistérios Menores – Annie Besant I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Cristianismo Esotérico ou os Mistérios Menores – Annie Besant I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/I103373250E",
-                coverUrl: "https://i.ibb.co/K3044H2/O-Cristianismo-Esot-rico-ou-os-Mist-rios-Menores-Annie-Besant-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/K3044H2/O-Cristianismo-Esot-rico-ou-os-Mist-rio-Menores-Annie-Besant-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 67, 
@@ -1171,7 +1262,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238413849&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-diario-de-um-mago-paulo-coelho-i-audiobook" title="O Diário de um Mago - Paulo Coelho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Diário de um Mago - Paulo Coelho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/W100119973E",
-                coverUrl: "https://i.ibb.co/q3FQ9bP0/O-Di-rio-de-um-Mago-Paulo-Coelho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/q3FQ9bP0/O-Di-rio-de-um-Mago-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 68, 
@@ -1180,7 +1272,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238416582&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-governo-oculto-do-mundo-henrique-rosa-i-audiobook" title="O Governo Oculto do Mundo – Henrique Rosa I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Governo Oculto do Mundo – Henrique Rosa I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/V103378838U",
-                coverUrl: "https://i.ibb.co/fdXgrhtM/O-Governo-Oculto-do-Mundo-CAPA-TANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/fdXgrhtM/O-Governo-Oculto-do-Mundo-CAPA-TANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 69, 
@@ -1189,7 +1282,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238418550&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-guardiao-da-meia-noite-rubens-saraceni-i-audiobook" title="O Guardiao da Meia Noite - Rubens Saraceni I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Guardiao da Meia Noite - Rubens Saraceni I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/B103206663N",
-                coverUrl: "https://i.ibb.co/fY31FF2n/O-Guardiao-da-Meia-Noite-Rubens-Saraceni-CAPA-TANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/fY31FF2n/O-Guardiao-da-Meia-Noite-Rubens-Saraceni-CAPA-TANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 70, 
@@ -1198,7 +1292,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238420821&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-guardiao-das-sete-encruzilhadas-rubens-saraceni-i-audiobook" title="O Guardião das Sete Encruzilhadas – Rubens Saraceni I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Guardião das Sete Encruzilhadas – Rubens Saraceni I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/K101972507B",
-                coverUrl: "https://i.ibb.co/tTJcm4cT/O-Guardi-o-das-Sete-Encruzilhadas-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/tTJcm4cT/O-Guardi-o-das-Sete-Encruzilhadas-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 71, 
@@ -1207,7 +1302,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238422639&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-guardiao-dos-caminhos-rubens-saraceni-i-audiobook" title="O Guardião dos Caminhos – Rubens Saraceni I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Guardião dos Caminhos – Rubens Saraceni I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/L101891984N",
-                coverUrl: "https://i.ibb.co/ns1pYQPz/O-Guardia-o-dos-Caminhos-Rubens-Saraaceni-CAPA-TRANSPRENTE.png"
+                coverUrl: "https://i.ibb.co/ns1pYQPz/O-Guardia-o-dos-Caminhos-Rubens-Saraaceni-CAPA-TRANSPRENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 72, 
@@ -1216,7 +1312,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238424907&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-homem-mais-rico-da-babilonia-george-s-clason-i-audiobook" title="O Homem Mais Rico da Babilônia – George S. Clason I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Homem Mais Rico da Babilônia – George S. Clason I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/F101759381Q",
-                coverUrl: "https://i.ibb.co/cXgQ9xq2/O-Homem-Mais-Rico-da-Babilonia-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/cXgQ9xq2/O-Homem-Mais-Rico-da-Babilonia-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 73, 
@@ -1225,7 +1322,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238549902&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-livro-amarelo-samael-aun-weor-i-audiobook" title="O Livro Amarelo - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Livro Amarelo - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Q101891694K",
-                coverUrl: "https://i.ibb.co/5gTYq6rR/O-Livro-Amarelo-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/5gTYq6rR/O-Livro-Amarelo-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 74, 
@@ -1234,7 +1332,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238551885&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-livro-da-lei-aleister-crowley-i-audiobook" title="O Livro da Lei – Aleister Crowley I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Livro da Lei – Aleister Crowley I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/G103430792L",
-                coverUrl: "https://i.ibb.co/PvG6ZNMk/O-Livro-da-Lei-Aleister-Crowley-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/PvG6ZNMk/O-Livro-da-Lei-Aleister-Crowley-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 75, 
@@ -1243,7 +1342,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238553538&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-livro-de-enoch-o-profeta-i-audiobook" title="O Livro de Enoch - O Profeta I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Livro de Enoch - O Profeta I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A102014769V",
-                coverUrl: "https://i.ibb.co/d41Bh3t1/O-Livro-de-Enoch-O-Profeta-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/d41Bh3t1/O-Livro-de-Enoch-O-Profeta-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 76, 
@@ -1252,7 +1352,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238555737&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-livro-de-thoth-aleister-crowley-i-audiobook" title="O Livro de Thoth – Aleister Crowley I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Livro de Thoth – Aleister Crowley I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/X103209715I",
-                coverUrl: "https://i.ibb.co/cSQFxXxK/O-Livro-de-Thoth-Aleister-Crowley-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/cSQFxXxK/O-Livro-de-Thoth-Aleister-Crowley-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 77, 
@@ -1261,7 +1362,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238557417&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-livro-que-diz-a-verdade-rael-i-audiobook" title="O Livro que Diz a Verdade – Rael I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Livro que Diz a Verdade – Rael I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/J103378944Q",
-                coverUrl: "https://i.ibb.co/B25jzQW7/O-Livro-que-diz-a-Verdade-Rael-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/B25jzQW7/O-Livro-que-diz-a-Verdade-Rael-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 78, 
@@ -1270,7 +1372,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238559130&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-matrimonio-perfeito-samael-aun-weor-i-audiobook" title="O Matrimônio Perfeito - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Matrimônio Perfeito - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/S103252086J",
-                coverUrl: "https://i.ibb.co/PspgNmV5/O-Matrim-nio-Perfeito-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/PspgNmV5/O-Matrim-nio-Perfeito-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 79, 
@@ -1279,7 +1382,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238561605&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-parsifal-desvelado-samael-aun-weor-i-audiobook" title="O Parsifal Desvelado - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Parsifal Desvelado - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/F103258675E",
-                coverUrl: "https://i.ibb.co/5ZGs5bY/O-Persifal-Desvelado-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/5ZGs5bY/O-Persifal-Desvelado-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 80, 
@@ -1288,7 +1392,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238563870&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-poder-da-ressonancia-harmonica-helio-couto-i-audiobook" title="O Poder da Ressonância Harmônica – Hélio Couto I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Poder da Ressonância Harmônica – Hélio Couto I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/K103539222S",
-                coverUrl: "https://i.ibb.co/GvwDyykx/O-Poder-da-Resson-ncia-Harm-nica-H-lio-Couto-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/GvwDyykx/O-Poder-da-Resson-ncia-Harm-nica-H-lio-Couto-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 81, 
@@ -1297,7 +1402,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238565757&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-principe-nicolau-maquiavel-i-audiobook" title="O Príncipe – Nicolau Maquiavel I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Príncipe – Nicolau Maquiavel I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/J103208698V",
-                coverUrl: "https://i.ibb.co/1GgkgJkK/O-Pr-ncipe-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/1GgkgJkK/O-Pr-ncipe-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 82, 
@@ -1306,7 +1412,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238568019&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-profeta-kahlil-gibran-i-audiobook" title="O Profeta – Kahlil Gibran I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Profeta – Kahlil Gibran I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A100261860T",
-                coverUrl: "https://i.ibb.co/3yywFxzW/O-Profeta-Kahlil-Gibran-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/3yywFxzW/O-Profeta-Kahlil-Gibran-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 83, 
@@ -1315,7 +1422,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238574970&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/o-renascer-da-magia-kenneth-grant-i-audiobook" title="O Renascer da Magia – Kenneth Grant I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">O Renascer da Magia – Kenneth Grant I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H103288622X",
-                coverUrl: "https://i.ibb.co/Gv5wYZWZ/O-Renascer-da-Magia-Kenneth-Grant-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Gv5wYZWZ/O-Renascer-da-Magia-Kenneth-Grant-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 84, 
@@ -1324,7 +1432,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238609890&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/ocultismo-pratico-h-p-blavatsky-i-audiobook" title="Ocultismo Prático - H. P. Blavatsky I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Ocultismo Prático - H. P. Blavatsky I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/P103249675U",
-                coverUrl: "https://i.ibb.co/CpDdG2Vq/Ocultismo-Pr-tico-H-P-Blavatsky-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/CpDdG2Vq/Ocultismo-Pr-tico-H-P-Blavatsky-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 85, 
@@ -1333,7 +1442,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238611639&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/os-pilares-de-tubalcaim-a-tradicao-luciferiana-i-audiobook" title="Os Pilares de Tubalcaim - A Tradição Luciferiana I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Os Pilares de Tubalcaim - A Tradição Luciferiana I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C100129064C",
-                coverUrl: "https://i.ibb.co/R4CHxGLQ/Os-Pilares-de-Tubalcaim-A-tradi-o-Luciferiana-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/R4CHxGLQ/Os-Pilares-de-Tubalcaim-A-tradi-o-Luciferiana-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 86, 
@@ -1342,7 +1452,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238613532&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/pai-rico-pai-pobre-robert-t-kiyosaki-i-audiobook" title="Pai Rico, Pai Pobre – Robert T. Kiyosaki I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Pai Rico, Pai Pobre – Robert T. Kiyosaki I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/D103008382L",
-                coverUrl: "https://i.ibb.co/qMnpSMXz/Pai-Rico-Pai-Pobre-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/qMnpSMXz/Pai-Rico-Pai-Pobre-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 87, 
@@ -1351,7 +1462,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238616733&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/poemas-malditos-alvares-de-azevedo-i-audiobook" title="Poemas Malditos – Álvares de Azevedo I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Poemas Malditos – Álvares de Azevedo I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/V100768908A",
-                coverUrl: "https://i.ibb.co/wZ3V5g0c/Poemas-Malditos-Alvares-de-Azeveo-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/wZ3V5g0c/Poemas-Malditos-Alvares-de-Azeveo-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 88, 
@@ -1360,7 +1472,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238618983&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/santo-anjo-guardiao-a-magia-sagrada-de-abramelim-o-mago-i-audiobook" title="Santo Anjo Guardião – A Magia Sagrada de AbraMelim, o Mago I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Santo Anjo Guardião – A Magia Sagrada de AbraMelim, o Mago I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/T103205256N",
-                coverUrl: "https://i.ibb.co/3yXjmT5D/Santo-Anjo-Guardi-o-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/3yXjmT5D/Santo-Anjo-Guardi-o-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 89, 
@@ -1369,7 +1482,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238620801&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/sao-cipriano-o-bruxo-i-audiobook" title="São Cipriano – O Bruxo I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">São Cipriano – O Bruxo I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/Q95384578T",
-                coverUrl: "https://i.ibb.co/272QxznM/S-o-Cipriano-O-Bruxo-CAPA-TRANSPARENTE1.png"
+                coverUrl: "https://i.ibb.co/272QxznM/S-o-Cipriano-O-Bruxo-CAPA-TRANSPARENTE1.png",
+                isNewRelease: false
             },
             { 
                 id: 90, 
@@ -1378,7 +1492,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238623744&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/sim-ha-inferno-sim-ha-diabo-sim-ha-karma-samael-aun-weor-audiobook" title="Sim há Inferno, Sim há Diabo, Sim há Karma - Samael Aun Weor  | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Sim há Inferno, Sim há Diabo, Sim há Karma - Samael Aun Weor  | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/A103010910I",
-                coverUrl: "https://i.ibb.co/Zz9p9MHt/Sim-h-Inferno-Sim-h-Diabo-Sim-h-Karma-Samael-Aun-Weor-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Zz9p9MHt/Sim-h-Inferno-Sim-h-Diabo-Sim-h-Karma-Samael-Aun-Weor-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 91, 
@@ -1387,7 +1502,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238625892&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/tantra-espiritualidade-e-sexo-osho-i-audiobook" title="Tantra – Espiritualidade e Sexo — Osho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Tantra – Espiritualidade e Sexo — Osho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/H103193837H",
-                coverUrl: "https://i.ibb.co/4n7F4G1h/Tantra-Espiritualidade-e-Sexo-Osho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/4n7F4G1h/Tantra-Espiritualidade-e-Sexo-Osho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 92, 
@@ -1396,7 +1512,8 @@
                 category: "philosophy",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238627437&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/tao-te-ching-lao-tse-i-audiobook" title="Tao Te Ching – Lao Tse I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Tao Te Ching – Lao Tse I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/V103197124R",
-                coverUrl: "https://i.ibb.co/b5NvMW3q/Tao-Te-Ching-Lao-Tse-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/b5NvMW3q/Tao-Te-Ching-Lao-Tse-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 93, 
@@ -1405,7 +1522,8 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238629072&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/the-alchemist-paulo-coelho-i-audiobook" title="The Alchemist - Paulo Coelho I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">The Alchemist - Paulo Coelho I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/vrwtn",
-                coverUrl: "https://i.ibb.co/Mxx0Qb5X/The-Alchemist-Paulo-Coelho-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/Mxx0Qb5X/The-Alchemist-Paulo-Coelho-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 94, 
@@ -1414,7 +1532,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238634724&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/the-book-of-the-law-aleister-crowley-i-audiobook" title="The Book of the Law – Aleister Crowley I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">The Book of the Law – Aleister Crowley I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/svlgs",
-                coverUrl: "https://i.ibb.co/84Mc05yv/The-Book-of-the-Law-Aleister-Crowley-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/84Mc05yv/The-Book-of-the-Law-Aleister-Crowley-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 95, 
@@ -1423,7 +1542,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238653312&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/the-magical-revival-kenneth-grant-i-audiobook" title="The Magical Revival – Kenneth Grant I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">The Magical Revival – Kenneth Grant I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/tplfci",
-                coverUrl: "https://i.ibb.co/KpN1vbRs/The-Magical-Revival-Kenneth-Grant-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/KpN1vbRs/The-Magical-Revival-Kenneth-Grant-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 96, 
@@ -1432,7 +1552,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238637823&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/the-wisdom-of-the-river-alessandrho-pereira-audiobook" title="The Wisdom of the River - Alessàndrho Peréira | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">The Wisdom of the River - Alessàndrho Peréira | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://horusaudiobook.gumroad.com/l/ghnja",
-                coverUrl: "https://i.ibb.co/wrKnxR3k/The-Wisdom-of-the-River-Aless-ndrho-Per-ira-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/wrKnxR3k/The-Wisdom-of-the-River-Aless-ndrho-Per-ira-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 97, 
@@ -1441,7 +1562,8 @@
                 category: "self-help",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238640964&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/tratado-de-psicologia-revolucionaria-samael-aun-weor-i-audiobook" title="Tratado de Psicologia Revolucionária - Samael Aun Weor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Tratado de Psicologia Revolucionária - Samael Aun Weor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/I103256631L",
-                coverUrl: "https://i.ibb.co/WN9b3hCg/Tratado-de-Psicologia-Revolucion-ria-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/WN9b3hCg/Tratado-de-Psicologia-Revolucion-ria-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 98, 
@@ -1450,7 +1572,8 @@
                 category: "esoterism",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238643070&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/wicca-crencas-e-praticas-gary-cantrell-audiobook" title="Wicca – Crenças e Práticas - Gary Cantrell | Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Wicca – Crenças e Práticas - Gary Cantrell | Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/C102381193Q",
-                coverUrl: "https://i.ibb.co/F4qkTg6R/Wicca-Cren-as-e-Pr-ticas-CAPA-TRANSPARENTE.png"
+                coverUrl: "https://i.ibb.co/F4qkTg6R/Wicca-Cren-as-e-Pr-ticas-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
             },
             { 
                 id: 99, 
@@ -1459,8 +1582,46 @@
                 category: "spirituality",
                 soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2238645233&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/zohar-o-livro-do-esplendor-i-audiobook" title="Zohar – O Livro do Esplendor I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">Zohar – O Livro do Esplendor I Audiobook 🎧</a></div>`,
                 hotmartLink: "https://pay.hotmart.com/M103204489D",
-                coverUrl: "https://i.ibb.co/jd9JMdP/Zohar-O-Livro-do-Esplendor-CAPA-TRANSPAENTE.png"
+                coverUrl: "https://i.ibb.co/jd9JMdP/Zohar-O-Livro-do-Esplendor-CAPA-TRANSPAENTE.png",
+                isNewRelease: false
             }
+        ];
+        
+        // ARRAY PARA OS NOVOS LANÇAMENTOS
+        // Aqui você pode adicionar os novos audiobooks que será cadastrando
+        const newReleases = [
+            // Exemplo de como adicionar um novo lançamento:
+            // { 
+            //     id: 100, 
+            //     title: "Novo Audiobook Exemplo", 
+            //     author: "Autor Exemplo",
+            //     category: "esoterism",
+            //     soundcloudEmbed: `<iframe ...></iframe>`,
+            //     hotmartLink: "https://pay.hotmart.com/...",
+            //     coverUrl: "https://...",
+            //     isNewRelease: true
+            // },
+            // Adicione quantos novos audiobooks quiser aqui
+            { 
+                id: 100, 
+                title: "Ethos (Em Português)", 
+                author: "Austin Osman Spare",
+                category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2242961873&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/ethos-austin-osman-spare-i-audiobook" title="ETHOS - Austin Osman Spare I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">ETHOS - Austin Osman Spare I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://pay.hotmart.com/E103707557T",
+                coverUrl: "https://i.ibb.co/YFmwP3Wz/ETHOS-Austin-Osman-Spare-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
+            },
+            { 
+                id: 101, 
+                title: "Ethos (English Version)", 
+                author: "Austin Osman Spare",
+                category: "spirituality",
+                soundcloudEmbed: `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2242969352&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/horusaudiobook" title="Hórus Audiobook" target="_blank" style="color: #cccccc; text-decoration: none;">Hórus Audiobook</a> · <a href="https://soundcloud.com/horusaudiobook/cbfaf537-ab39-48cc-a157-47f1a5afc409" title="ETHOS - Austin Osman Spare I Audiobook 🎧" target="_blank" style="color: #cccccc; text-decoration: none;">ETHOS - Austin Osman Spare I Audiobook 🎧</a></div>`,
+                hotmartLink: "https://horusaudiobook.gumroad.com/l/vrejkl",
+                coverUrl: "https://i.ibb.co/YFmwP3Wz/ETHOS-Austin-Osman-Spare-CAPA-TRANSPARENTE.png",
+                isNewRelease: false
+            },
         ];
 
         // Função para gerar cores baseadas no ID
@@ -1481,7 +1642,7 @@
         }
 
         // Função para criar um card de audiobook
-        function createAudiobookCard(audiobook) {
+        function createAudiobookCard(audiobook, isNewRelease = false) {
             const card = document.createElement('div');
             card.className = 'audiobook-card';
             card.dataset.id = audiobook.id;
@@ -1491,6 +1652,7 @@
             const hasCover = audiobook.coverUrl && audiobook.coverUrl.trim() !== "";
             
             card.innerHTML = `
+                ${isNewRelease ? '<div class="new-release-badge">NOVO</div>' : ''}
                 ${hasCover ? 
                     `<img class="audiobook-cover" 
                           src="${audiobook.coverUrl}" 
@@ -1515,6 +1677,34 @@
             `;
             
             return card;
+        }
+
+        // Função para carregar os lançamentos
+        function loadNewReleases() {
+            const newReleasesGrid = document.getElementById('new-releases-list');
+            
+            if (newReleases.length === 0) {
+                newReleasesGrid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <i class="fas fa-bell"></i>
+                        <h3>Em breve novos lançamentos</h3>
+                        <p>Novos audiobooks serão adicionados em breve. Fique atento!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Limpar grid
+            newReleasesGrid.innerHTML = '';
+            
+            // Adicionar cards de lançamentos
+            newReleases.forEach(audiobook => {
+                const card = createAudiobookCard(audiobook, true);
+                newReleasesGrid.appendChild(card);
+            });
+            
+            // Adicionar eventos aos cards de lançamentos
+            addCardEventsToGrid(newReleasesGrid);
         }
 
         // Variáveis globais
@@ -1588,7 +1778,7 @@
             }
             
             // Adicionar eventos aos novos cards
-            addCardEvents();
+            addCardEventsToGrid(grid);
         }
 
         // Função para limpar busca
@@ -1601,15 +1791,20 @@
 
         // Função para carregar os audiobooks na página
         function loadAudiobooks() {
+            // Primeiro carrega os lançamentos
+            loadNewReleases();
+            
+            // Depois carrega o catálogo completo
             filterAudiobooks();
             
             console.log("✅ Catálogo carregado com 99 audiobooks!");
+            console.log("✅ Seção de Lançamentos adicionada!");
             console.log("🔍 Sistema de busca e filtros funcionando perfeitamente");
         }
 
-        // Adicionar eventos aos cards
-        function addCardEvents() {
-            document.addEventListener('click', function(e) {
+        // Adicionar eventos aos cards de um grid específico
+        function addCardEventsToGrid(gridElement) {
+            gridElement.addEventListener('click', function(e) {
                 // Evento para abrir/fechar player
                 if (e.target.closest('.audiobook-card')) {
                     const card = e.target.closest('.audiobook-card');
@@ -1619,7 +1814,8 @@
                     if (e.target.closest('.player-container') || 
                         e.target.closest('.buy-btn') ||
                         e.target.closest('iframe') ||
-                        e.target.closest('.soundcloud-footer')) {
+                        e.target.closest('.soundcloud-footer') ||
+                        e.target.closest('.new-release-badge')) {
                         return;
                     }
                     
@@ -1637,6 +1833,12 @@
                     }
                 }
             });
+        }
+
+        // Função para adicionar eventos a todos os cards (para compatibilidade)
+        function addCardEvents() {
+            addCardEventsToGrid(document.getElementById('audiobooks-list'));
+            addCardEventsToGrid(document.getElementById('new-releases-list'));
         }
 
         // Função para pausar todos os players do SoundCloud exceto o atual
@@ -1719,6 +1921,29 @@
             loadAudiobooks();
             setupSearch();
         });
+        
+        // Função para adicionar um novo audiobook (para uso futuro)
+        window.addNewAudiobook = function(audiobookData) {
+            // Adiciona à lista de novos lançamentos
+            newReleases.push({
+                ...audiobookData,
+                id: allAudiobooks.length + 1,
+                isNewRelease: true
+            });
+            
+            // Adiciona também à lista completa
+            allAudiobooks.push({
+                ...audiobookData,
+                id: allAudiobooks.length + 1,
+                isNewRelease: false
+            });
+            
+            // Recarrega a página para mostrar os novos lançamentos
+            loadNewReleases();
+            filterAudiobooks();
+            
+            console.log(`✅ Novo audiobook adicionado: ${audiobookData.title}`);
+        };
     </script>
 </body>
 </html>
